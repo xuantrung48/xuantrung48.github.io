@@ -46,7 +46,7 @@ changeLang = function() {
 	if (lang == 0) {
 		$('#Lang').text('EN');
 		$('#title').text('Hồ Sơ Nguyễn Xuân Trung');
-		$('#Name').text('Nguyễn Xuân Trung');
+		$('.name').text('Nguyễn Xuân Trung');
 		$('.about').text('Giới thiệu');
 		$('.skills').text('Kỹ năng');
 		$('.portfolio').text('Danh mục dự án');
@@ -74,6 +74,9 @@ changeLang = function() {
 		$('.send-message').text('Gửi tin nhắn cho tôi');
 		$('.send').text('Gửi');
 		$('.thank-you').text('Xin cám ơn!');
+		$('.name').attr('placeholder', 'Tên');
+		$('.subject').attr('placeholder', 'Tiêu đề');
+		$('.message').attr('placeholder', 'Tin nhắn');
 		lang = 1;
 	} else {
 		displayEn();
@@ -83,7 +86,7 @@ changeLang = function() {
 displayEn = function(){
 	$('#Lang').text('VI');
 	$('#title').text("Nguyen Xuan Trung's profile");
-	$('#Name').text('Nguyen Xuan Trung');
+	$('.name').text('Nguyen Xuan Trung');
 	$('.about').text('About');
 	$('.skills').text('Skills');
 	$('.portfolio').text('Portfolio');
@@ -111,5 +114,8 @@ displayEn = function(){
 	$('.send-message').text('Send me a message');
 	$('.send').text('Send');
 	$('.thank-you').text('THANK YOU!');
+	$('.name').attr('placeholder', 'Name');
+	$('.subject').attr('placeholder', 'Subject');
+	$('.message').attr('placeholder', 'Your message');
 	lang = 0;
 }
