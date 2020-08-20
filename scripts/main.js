@@ -45,6 +45,7 @@ $('a.smooth-scroll')
 changeLang = function() {
 	if (lang == 0) {
 		$('#Lang').text('EN');
+		$('#title').text('Hồ Sơ Nguyễn Xuân Trung');
 		$('#Name').text('Nguyễn Xuân Trung');
 		$('.about').text('Giới thiệu');
 		$('.skills').text('Kỹ năng');
@@ -81,6 +82,7 @@ changeLang = function() {
 
 displayEn = function(){
 	$('#Lang').text('VI');
+	$('#title').text("Nguyen Xuan Trung's profile");
 	$('#Name').text('Nguyen Xuan Trung');
 	$('.about').text('About');
 	$('.skills').text('Skills');
