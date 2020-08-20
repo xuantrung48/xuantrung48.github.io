@@ -18,16 +18,17 @@
 			<div class="profile-page sidebar-collapse">
 				<nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
 					<div class="container">
-						<div class="navbar-translate"><a class="navbar-brand" href="#" rel="tooltip"><strong>Nguyen Xuan Trung</strong></a>
+						<div class="navbar-translate"><a class="navbar-brand" href="#" rel="tooltip"><strong id="Name"></strong></a>
 							<button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
 						</div>
 						<div class="collapse navbar-collapse justify-content-end" id="navigation">
 							<ul class="navbar-nav">
-								<li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
-								<li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Skills</a></li>
-								<li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li>
-								<li class="nav-item"><a class="nav-link smooth-scroll" href="#education">Education</a></li>
-								<li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
+								<li class="nav-item"><a class="nav-link smooth-scroll about" href="#about"></a></li>
+								<li class="nav-item"><a class="nav-link smooth-scroll skills" href="#skill"></a></li>
+								<li class="nav-item"><a class="nav-link smooth-scroll portfolio" href="#portfolio"></a></li>
+								<li class="nav-item"><a class="nav-link smooth-scroll education" href="#education"></a></li>
+								<li class="nav-item"><a class="nav-link smooth-scroll contact" href="#contact"></a></li>
+								<li class="nav-item bg-secondary rounded"><a class="nav-link smooth-scroll" href="javascript:void(0);" onclick="changeLang();"><strong id="Lang"></strong></a></li>
 							</ul>
 						</div>
 					</div>
@@ -43,7 +44,7 @@
 						<div class="container">
 							<div class="content-center">
 								<div class="cc-profile-image"><img src="images/avatar.jpg" alt="Image"/></div>
-								<p class="category text-white">Web Developer</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
+								<p class="category text-white">Full-Stack Web Developer</p><a class="btn btn-primary smooth-scroll mr-2 contact" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor"></a><a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
 							</div>
 						</div>
 					</div>
@@ -55,9 +56,9 @@
 							<div class="row">
 								<div class="col-lg-6 col-md-12">
 									<div class="card-body">
-										<div class="h4 mt-0 title">About</div>
-										<p>Hello! My name is Nguyen Xuan Trung. I am a Web Developer.</p>
-										<p>I’m a Full-Stack developer, and I specialize in efficient ASP.NET Core that just work across all platforms. I care deeply about building effective codes that are usable and optimize system performance.</p>
+										<div class="h4 mt-0 title about"></div>
+										<div id="introduce">
+										</div>
 										<div class="text-center">
 											<a class="btn btn-default btn-round btn-sm btn-icon" style="background-color: black" href="https://github.com/xuantrung48/" target="_blank"><i class="fab fa-github mt-2"></i></a>
 											<a class="btn btn-default btn-round btn-sm btn-icon" href="https://www.facebook.com/XuanTrung" target="_blank"><i class="fab fa-facebook mt-2"></i></a>
@@ -66,30 +67,30 @@
 								</div>
 								<div class="col-lg-6 col-md-12">
 									<div class="card-body">
-										<div class="h4 mt-0 title">Basic Information</div>
+										<div class="h4 mt-0 title information"></div>
 										<div class="row">
-											<div class="col-sm-4"><strong class="text-uppercase">Age:</strong></div>
+											<div class="col-sm-4"><strong class="text-uppercase age"></strong></div>
 											<div class="col-sm-8" id="age"></div>
 										</div>
 										<div class="row mt-2">
-											<div class="col-sm-4"><strong class="text-uppercase">Gender:</strong></div>
-											<div class="col-sm-8">Male</div>
+											<div class="col-sm-4"><strong class="text-uppercase gender"></strong></div>
+											<div class="col-sm-8 male"></div>
 										</div>
 										<div class="row mt-2">
 											<div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
 											<div class="col-sm-8"><a href="#" class="cryptedmail" data-name="xuantrung48" data-domain="gmail" data-tld="com" onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"></a></div>
 										</div>
 										<div class="row mt-2">
-											<div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
+											<div class="col-sm-4"><strong class="text-uppercase phone"></strong></div>
 											<div class="col-sm-8"><a href="#" class="cryptephone" data-nation="+84" data-first="702" data-last="004004" onclick="window.location.href = 'tel:' + this.dataset.nation + this.dataset.first + this.dataset.last; return false;"></a></div>
 										</div>
 										<div class="row mt-2">
-											<div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
-											<div class="col-sm-8"><a href="https://goo.gl/maps/xREpFsPxDBF22ad46" target="_blank">33/39 Dao Duy Anh, Hue, Vietnam</a></div>
+											<div class="col-sm-4"><strong class="text-uppercase address"></strong></div>
+											<div class="col-sm-8"><a href="https://goo.gl/maps/xREpFsPxDBF22ad46" target="_blank" class="address-detail">33/39 Dao Duy Anh, Hue, Vietnam</a></div>
 										</div>
 										<div class="row mt-2">
-											<div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
-											<div class="col-sm-8">English, Vietnamese</div>
+											<div class="col-sm-4"><strong class="text-uppercase language"></strong></div>
+											<div class="col-sm-8 envi"></div>
 										</div>
 									</div>
 								</div>
@@ -99,7 +100,7 @@
 				</div>
 				<div class="section" id="skill">
 					<div class="container">
-						<div class="h4 text-center mb-4 title">Professional Skills</div>
+						<div class="h4 text-center mb-4 title skills"></div>
 						<div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
 							<div class="card-body">
 								<div class="row">
@@ -158,7 +159,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-6 ml-auto mr-auto">
-								<div class="h4 text-center mb-4 title">Portfolio</div>
+								<div class="h4 text-center mb-4 title portfolio"></div>
 								<div class="nav-align-center">
 									<ul class="nav nav-pills nav-pills-primary" role="tablist">
 										<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#module1" role="tablist"><h4><i class="fab fa-js mt-3"></i></h4></a></li>
@@ -237,7 +238,7 @@
 												</figcaption>
 											</figure>
 										</a>
-										<h4 class="text-center">Position: Team leader</h4>
+										<h4 class="text-center"><span id="position"></span>: Team leader</h4>
 									</div>
 								</div>
 							</div>
@@ -267,37 +268,37 @@
 				</div>-->
 				<div class="section" id="education">
 					<div class="container cc-education">
-						<div class="h4 text-center mb-4 title">Education</div>
+						<div class="h4 text-center mb-4 title education"></div>
 						<div class="card">
 							<div class="row">
-								<div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+								<div class="col-md-4 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
 									<div class="card-body cc-education-header">
-										<p>Jan 2020 - Sep 2020</p>
-										<div class="h5">Full-stack .NET Core Developer</div>
+										<p id="full-stack-dev-time"></p>
+										<div class="h5 full-stack-dev"></div>
 									</div>
 								</div>
-								<div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+								<div class="col-md-8" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
 									<div class="card-body">
-										<div class="h5">Full-stack .NET Core Developer</div>
-										<p class="category"><a href="https://hue.codegym.vn/" target="_blank">CodeGym Hue</a></p>
-										<p>Learning about HTML/CSS/JS, Ajax Jquery, C#, SQL, SQL Server, Spring MVC, ASP.NET Core RESTful API, Angula and Git.</p>
+										<div class="h5 full-stack-dev"></div>
+										<p class="category"><a href="https://hue.codegym.vn/" target="_blank" id="codegym-hue"></a></p>
+										<p id="learn-codegym"></p>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="card">
 							<div class="row">
-								<div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+								<div class="col-md-4 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
 									<div class="card-body cc-education-header">
-										<p>Jul 2007 - Jul 2011</p>
-										<div class="h5">Tourism Management Administration</div>
+										<p id="tourism-time"></p>
+										<div class="h5 tourism-name"></div>
 									</div>
 								</div>
-								<div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+								<div class="col-md-8" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
 									<div class="card-body">
-										<div class="h5">Tourism Management Administration</div>
-										<p class="category"><a href="http://www.hce.edu.vn/" target="_blank">Hue College of Economics</a></p>
-										<p>Possess in-depth understanding and up-to-date knowledge of tourism in market-oriented economy.</p>
+										<div class="h5 tourism-name"></div>
+										<p class="category"><a href="http://www.hce.edu.vn/" target="_blank" id="college"></a></p>
+										<p id="learn-college"></p>
 									</div>
 								</div>
 							</div>
@@ -350,14 +351,14 @@
 								<div class="row">
 									<div class="col-md-9 mx-auto p-5">
 										<div class="card mb-0" data-aos="zoom-in">
-											<div class="h4 text-center title">Contact Me</div>
+											<div class="h4 text-center title contact"></div>
 											<div class="row">
 												<div class="col-md-6">
 													<div class="card-body">
-														<div class="p pb-3 text-center"><h4>Information </h4></div>
-														<p class="mb-0"><strong>Address </strong></p>
-														<p class="pb-2"><a href="https://goo.gl/maps/xREpFsPxDBF22ad46" target="_blank">33/39 Dao Duy Anh, Hue, Vietnam</a></p>
-														<p class="mb-0"><strong>Phone</strong></p>
+														<div class="p pb-3 text-center"><h4 class="information"></h4></div>
+														<p class="mb-0"><strong class="address"></strong></p>
+														<p class="pb-2"><a href="https://goo.gl/maps/xREpFsPxDBF22ad46" target="_blank" class="address-detail">33/39 Dao Duy Anh, Hue, Vietnam</a></p>
+														<p class="mb-0"><strong class="phone">Phone</strong></p>
 														<p class="pb-2"><a href="#" class="cryptephone" data-nation="+84" data-first="702" data-last="004004" onclick="window.location.href = 'tel:' + this.dataset.nation + this.dataset.first + this.dataset.last; return false;"></a></p>
 														<p class="mb-0"><strong>Email</strong></p>
 														<p class="pb-2"><a href="#" class="cryptedmail" data-name="xuantrung48" data-domain="gmail" data-tld="com" onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"></a></p>
@@ -370,7 +371,7 @@
 												<div class="col-md-6">
 													<div class="card-body">
 														<form action="https://formspree.io/myynawrr" method="POST" class="text-right">
-															<div class="p pb-3 text-center"><h4>Send me a message </h4></div>
+															<div class="p pb-3 text-center"><h4 class="send-message"></h4></div>
 															<div class="row mb-3">
 																<div class="col">
 																	<div class="input-group"><span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
@@ -401,7 +402,7 @@
 															</div>
 															<div class="row">
 																<div class="col">
-																	<button class="btn btn-primary" type="submit">Send</button>
+																	<button class="btn btn-primary send" type="submit"></button>
 																</div>
 															</div>
 														</form>
@@ -418,7 +419,7 @@
 			</div>
 		</div>
 		<footer class="footer">
-			<div class="h4 title text-center">THANK YOU!</div>
+			<div class="h4 title text-center thank-you"></div>
 		</footer>
 		<script src="js/core/jquery.3.2.1.min.js"></script>
 		<script src="js/core/popper.min.js"></script>
