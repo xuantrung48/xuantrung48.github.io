@@ -1,0 +1,266 @@
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap" rel="stylesheet">
+		<title>___Racing_Formula_1___</title>
+		<link rel="icon" href="https://i.ibb.co/1Rn44vv/car.png">
+		<style>
+			h1 {
+				font-family: 'Black Ops One' ;
+				font-style: italic;
+				font-weight: bold;
+				text-align: center;
+				font-size: 50px;
+			}
+			canvas {
+				border: 2px solid black;
+				display: block;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body onload="docReady()">
+		<h1>___Racing_Formula_1___</h1>
+		<img id="carup" src="https://i.ibb.co/1Rn44vv/car.png" hidden>
+		<img id="carright" src="https://i.ibb.co/BqwJjqW/car.png" hidden>
+		<img id="cardown" src="https://i.ibb.co/znL3Lft/car.png" hidden>
+		<img id="carleft" src="https://i.ibb.co/9HTpChP/car.png" hidden>
+		<img id="stone1" src="https://i.ibb.co/chHxrrz/stone1.png" hidden>
+		<img id="stone2" src="https://i.ibb.co/YBPqqHc/stone2.png" hidden>
+		<img id="stone3" src="https://i.ibb.co/yWg4mFK/stone3.png" hidden>
+		<img id="coin" src="https://i.ibb.co/NVgpbpG/coin.png" hidden>
+
+		<canvas id="myCanvas" width="700" height="500"></canvas>
+		<script>
+			function docReady() {
+				drawCanvas("up", x, y);
+				window.addEventListener('keydown', move);
+			}
+			
+			var x = 325;
+			var y = 225;
+			var xc;
+			var yc;
+			
+			function randomX() {
+				return Math.floor(Math.random() * 650);
+			}
+			function randomY() {
+				return Math.floor(Math.random() * 450);			
+			}
+			
+			var ctx = document.getElementById("myCanvas").getContext("2d");
+			var img;
+			
+			//Lớp tiền thưởng;
+			function Coin() {
+				this.draw = function(x, y) {
+					img = document.getElementById("coin");
+					ctx.drawImage(img, x, y);
+				}
+			}
+			var xc = randomX();
+			var yc = randomY();
+			var coin = new Coin();
+			
+			//Lớp chướng ngại vật
+			function Stone(n, x, y) {
+				this.draw = function() {
+					img = document.getElementById("stone" + n);
+					ctx.drawImage(img, x, y);
+				}
+			}
+			var x1 = randomX();
+			var x2 = randomX();
+			var x3 = randomX();
+			var x4 = randomX();
+			var x5 = randomX();
+			var x6 = randomX();
+			var x7 = randomX();
+			var x8 = randomX();
+			var y1 = randomY();
+			var y2 = randomY();
+			var y3 = randomY();
+			var y4 = randomY();
+			var y5 = randomY();
+			var y6 = randomY();
+			var y7 = randomY();
+			var y8 = randomY();
+			var stone1 = new Stone(1, x1, y1);
+			var stone2 = new Stone(2, x2, y2);
+			var stone3 = new Stone(3, x3, y3);
+			var stone4 = new Stone(1, x4, y4);
+			var stone5 = new Stone(2, x5, y5);
+			var stone6 = new Stone(3, x6, y6);
+			var stone7 = new Stone(1, x7, y7);
+			var stone8 = new Stone(2, x8, y8);
+			
+			//Khai báo lớp Car
+			function Car(coin = 0) {
+				this.coin = coin;
+				this.died = function() {
+					if ((x > (x1 - 50) && x < (x1 + 50)) && (y > (y1 - 50) && y < (y1 + 50)) || (x > (x2 - 50) && x < (x2 + 50)) && (y > (y2 - 50) && y < (y2 + 50)) || (x > (x3 - 50) && x < (x3 + 50)) && (y > (y3 - 50) && y < (y3 + 50)) || (x > (x4 - 50) && x < (x4 + 50)) && (y > (y4 - 50) && y < (y4 + 50)) || (x > (x5 - 50) && x < (x5 + 50)) && (y > (y5 - 50) && y < (y5 + 50)) || (x > (x6 - 50) && x < (x6 + 50)) && (y > (y6 - 50) && y < (y6 + 50)) || (x > (x7 - 50) && x < (x7 + 50)) && (y > (y7 - 50) && y < (y7 + 50)) || (x > (x8 - 50) && x < (x8 + 50)) && (y > (y8 - 50) && y < (y8 + 50))) {
+						return true;
+					}
+					return false;
+				}
+				this.earnCoin = function() {
+					if ((x > (xc - 50) && x < (xc + 50)) && (y > (yc - 50) && y < (yc + 50))) {
+						this.coin++;
+						xc = randomX();
+						yc = randomY();
+					}
+				}
+			}
+			
+			var car = new Car();
+			
+			//Vẽ Canvas
+			function drawCanvas(dir, x, y) {
+				ctx.clearRect(0,0,700,500);
+				switch (dir) {
+					case "up":
+						img = document.getElementById("carup");
+						break;
+					case "right":
+						img = document.getElementById("carright");
+						break;
+					case "down":
+						img = document.getElementById("cardown");
+						break;
+					case "left":
+						img = document.getElementById("carleft");
+						break;
+				}
+				ctx.drawImage(img, x, y);
+				stone1.draw();
+				stone2.draw();
+				stone3.draw();
+				stone4.draw();
+				stone5.draw();
+				stone6.draw();
+				stone7.draw();
+				stone8.draw();
+				car.earnCoin();
+				coin.draw(xc, yc);
+				ctx.font = "30px Black Ops One";
+				ctx.fillStyle = "#ffac30";
+				ctx.fillText("$" + car.coin, 10, 480);
+			}
+
+			function move(evt) {
+				if (window.event.ctrlKey && evt.keyCode == 37) {
+					speedLeft();
+				}
+				if (window.event.ctrlKey && evt.keyCode == 39) {
+					speedRight();
+				}
+				if (window.event.ctrlKey && evt.keyCode == 38) {
+					speedUp();
+				}
+				if (window.event.ctrlKey && evt.keyCode == 40) {
+					speedDown();
+				}
+				if (evt.keyCode == 37) {
+					left();
+				}
+				if (evt.keyCode == 39) {
+					right();
+				}
+				if (evt.keyCode == 38) {
+					up();
+				}
+				if (evt.keyCode == 40) {
+					down();
+				}
+			}
+			
+			function up() {
+				if (car.died()) {
+					alert("You died!");
+				} else {
+					y -= 4;
+					if (y < 0)
+						y = 0;
+					drawCanvas("up", x, y);
+				}
+			}
+
+			function down() {
+				if (car.died()) {
+					alert("You died!");
+				} else {
+					y += 4;
+					if (y > 450)
+						y = 450;
+					drawCanvas("down", x, y);
+				}
+			}
+
+			function left() {
+				if (car.died()) {
+					alert("You died!");
+				} else {
+					x -= 4;
+					if (x < 0)
+						x = 0;
+					drawCanvas("left", x, y);
+				}
+			}
+
+			function right() {
+				if (car.died()) {
+					alert("You died!");
+				} else {
+					x += 4;
+					if (x > 650)
+						x = 650;
+					drawCanvas("right", x, y);
+				}
+			}
+			
+			function speedUp() {
+				if (car.died()) {
+					alert("You died!");
+				} else {
+					y -= 6;
+					if (y < 0)
+						y = 0;
+					drawCanvas("up", x, y);
+				}
+			}
+
+			function speedDown() {
+				if (car.died()) {
+					alert("You died!");
+				} else {
+					y += 6;
+					if (y > 450)
+						y = 450;
+					drawCanvas("down", x, y);
+				}
+			}
+
+			function speedLeft() {
+				if (car.died()) {
+					alert("You died!");
+				} else {
+					x -= 6;
+					if (x < 0)
+						x = 0;
+					drawCanvas("left", x, y);
+				}
+			}
+
+			function speedRight() {
+				if (car.died()) {
+					alert("You died!");
+				} else {
+					x += 6;
+					if (x > 650)
+						x = 650;
+					drawCanvas("right", x, y);
+				}
+			}
+		</script>
+	</body>
+</html>

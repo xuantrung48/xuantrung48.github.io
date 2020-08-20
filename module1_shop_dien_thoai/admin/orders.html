@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Orders Management</title>
+		<link rel="icon" href="../images/smartphone-icon.png">
+		
+		<!-- <link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/ekko-lightbox.css">
+		<link rel="stylesheet" href="../css/jquery.dataTables.min.css"> -->
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<div class="d-flex" id="wrapper">
+			<!-- Sidebar -->
+			<div class="bg-dark border-right text-white" id="sidebar-wrapper">
+				<div class="sidebar-heading text-white"><h3>Dashboard</h3></div>
+				<div class="list-group list-group-flush">
+					<a href="index.html" class="list-group-item list-group-item-action bg-dark text-white">Devices Management</a>
+					<a href="orders.html" class="list-group-item list-group-item-action active text-white">Orders Management</a>
+					<a href="profile.html" class="list-group-item list-group-item-action bg-dark text-white">Profile</a>
+				</div>
+			</div>
+			<!-- /#sidebar-wrapper -->
+			<!-- Page Content -->
+			<div id="page-content-wrapper">
+				<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+					<button class="btn btn-primary" id="menu-toggle"><i class="fa fa-list-ul"></i></button>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+							<li class="nav-item active">
+								<a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="../index.html">Logout</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<div class="container-fluid">
+					<h1>Orders Management</h1>
+					<div>
+						<label>Orders' Status:
+							<select id="OrderStatusFilter">
+								<option>Pending</option>
+								<option>Processing</option>
+								<option>Completed</option>
+							</select>
+						</label>
+					</div>
+					<table class="table table-hover table-responsive table-bordered display" id="ordersManagement">
+						<thead>
+							<tr class="thead-dark">
+								<th>ID</th>
+								<th>Order Status</th>
+								<th>Customer's Name</th>
+								<th>Customer's Phone Number</th>
+								<th>Customer's Address</th>
+								<th>Device's Name</th>
+								<th>Images</th>
+								<th>Status</th>
+								<th>Price</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody id="tbCustomers">
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- /#page-content-wrapper -->
+		</div>
+		<!-- /#wrapper -->
+		<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-dialog modal-lg">
+			<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="deviceModalTitle">Order details:</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form id="formAddEditOrder">
+							<input hidden name="id" id="id" value="0">
+							<div class="row form-group">
+								<div class="col-3">Order's Status:</div>
+								<div class="col-9">
+									<select id="OrderStatus" class="form-control" name="OrderStatus" data-rule-required="true">
+										<option>Pending</option>
+										<option>Processing</option>
+										<option>Completed</option>
+									</select>
+								</div>
+							</div>
+							<div class="row form-group">
+								<div class="col-3">Customer's Name:</div>
+								<div class="col-9"><input type="text" id="CustomerName" class="form-control" name="CustomerName" data-rule-required="true"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-3">Customer's Phone Number:</div>
+								<div class="col-9"><input type="text" id="PhoneNumber" class="form-control" name="PhoneNumber" data-rule-required="true"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-3">Customer's Address:</div>
+								<div class="col-9"><input type="text" id="Address" class="form-control" name="Address" data-rule-required="true"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-3">Device's Name:</div>
+								<div class="col-9"><input type="text" id="Name" class="form-control" name="Name" data-rule-required="true"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-3">Image's URLs:</div>
+								<div class="col-9"><input type="text" id="Images0" class="form-control" data-rule-url="true" placeholder="Image's URL 1"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-3">
+								</div>
+								<div class="col-9"><input type="text" id="Images1" class="form-control" data-rule-url="true" placeholder="Image's URL 2"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-3">
+								</div>
+								<div class="col-9"><input type="text" id="Images2" class="form-control" data-rule-url="true" placeholder="Image's URL 3"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-3">Brand:</div>
+								<div class="col-3 ">
+									<select id="Brand" class="form-control" name="Brand" data-rule-required="true">
+									</select>
+								</div>
+								<div class="col-3">CPU:</div>
+								<div class="col-3"><input type="text" id="CPU" class="form-control"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-3">Screen:</div>
+								<div class="col-3"><input type="text" id="Screen" class="form-control"></div>
+								<div class="col-3">OS:</div>
+								<div class="col-3"><input type="text" id="OS" class="form-control"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-3">Rear Camera:</div>
+								<div class="col-3"><input type="text" id="RearCamera" class="form-control"></div>
+								<div class="col-3">Front Camera:</div>
+								<div class="col-3"><input type="text" id="FrontCamera" class="form-control"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-3">Ram (GB):</div>
+								<div class="col-3"><input type="text" id="Ram" class="form-control"></div>
+								<div class="col-3">Rom (GB):</div>
+								<div class="col-3"><input type="text" id="Rom" class="form-control"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-3">Status (%):</div>
+								<div class="col-3"><input type="text" id="Status" class="form-control" data-rule-range="1,100"></div>
+								<div class="col-3">Price (₫):</div>
+								<div class="col-3"><input type="text" id="Price" class="form-control" name="Price" data-rule-required="true" data-rule-number="true"></div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<a href="javascript:void(0);" class="btn btn-primary" onclick="saveOrder()">Save</a>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- <script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/ekko-lightbox.min.js"></script>
+		<script src="../js/jquery.validate.min.js"></script>
+		<script src="../js/bootbox.min.js"></script>
+		<script src="../js/jquery.dataTables.min.js"></script> -->
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+		
+		<script src="js/main.js"></script>
+		<script>
+			$(function(){
+				device.init();	
+				ordersdrawTable();
+			});
+		</script>
+	</body>
+</html>

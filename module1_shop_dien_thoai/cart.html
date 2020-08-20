@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Cửa hàng điện thoại cũ đã qua sử dụng giá rẻ">
+		<meta name="author" content="">
+		<title>Your Cart - 2ndBest - Shop điện thoại 2nd hand</title>
+		<link rel="icon" href="images/smartphone-icon.png">
+		
+		<!-- <link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/jquery-ui.min.css">
+		<link rel="stylesheet" href="css/ekko-lightbox.css"> -->
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton&display=swap">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+			<div class="container-fluid">
+				<a href="index.html" style="text-decoration:none" id="logo" class="navbar-brand">2ndBest</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="login.html">Login</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="cart.html" id="cart"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Page Content -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-3 ">
+					<h3 class="my-5 text-center" id="cartHeading"></h3>
+					
+					<div id="checkOut" class="text-center"></div>
+				</div>
+				
+				<div class="col-lg-9 my-4">
+					<div class="row" id="Cart">
+					</div>
+					<!-- /.row -->
+
+				</div>
+				<!-- /.col-lg-9 -->
+
+			</div>
+			<!-- /.row -->
+
+		</div>
+		<!-- /.container -->
+
+		<!-- Order Modal -->
+		<div id="OrderModal" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-dialog">
+			<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Please fill your details:</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form id="OrderForm">
+							<input hidden name="id" id="id" value="0">
+							<div class="row form-group">
+								<div class="col-5">Your Name:</div>
+								<div class="col-7"><input type="text" id="Name" class="form-control" name="Name" data-rule-required="true"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-5">Your Phone Number:</div>
+								<div class="col-7"><input type="text" id="PhoneNumber" class="form-control" name="PhoneNumber" data-rule-required="true" data-rule-number="true"></div>
+							</div>
+							<div class="row form-group">
+								<div class="col-5">Your Address:</div>
+								<div class="col-7"><input type="text" id="Address" class="form-control" name="Address" data-rule-required="true"></div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<a href="javascript:void(0);" class="btn btn-primary" onclick="orderCart()">Order Now</a>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer class="py-3 bg-dark">
+			<div class="container-fluid">
+				<p class="m-0 text-center text-white">Copyright &copy; 2ndBest 2020</p>
+			</div>
+		</footer>
+		
+		<!-- <script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/ekko-lightbox.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/bootbox.min.js"></script>
+		<script src="js/jquery.validate.min.js"></script> -->
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+		
+		<script src="js/main.js"></script>
+		<script>
+			$(function(){
+				checkCart();
+				cartList();
+			});
+		</script>
+	</body>
+</html>

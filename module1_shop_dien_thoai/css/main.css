@@ -1,0 +1,107 @@
+body {
+	margin-top: 80px;
+}
+
+#logo {
+	font-family: 'Monoton', cursive;
+	font-size: 30px;
+	color: red;
+}
+
+.image0 {
+    width:60%;
+	display: block;
+	margin: 5px auto;
+}
+
+.image1 {
+	height: 60px;
+}
+
+button {
+  cursor: pointer;
+}
+* {
+  box-sizing: border-box;
+}
+
+#searchbox input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+#searchbox button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+#searchbox button:hover {
+  background: #0b7dda;
+}
+
+#searchbox::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.error {
+	color: red;
+}
+
+.buyBtn {
+	width: 45% !important;
+	font-size: 0.9em;
+}
+
+.login-container {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.login-form-1 {
+	width: 50%;
+	margin: 0 auto;
+	padding: 5%;
+	box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-form-1 h3 {
+	text-align: center;
+	color: #333;
+}
+
+.login-container form {
+	padding: 10%;
+}
+
+.btnSubmit {
+	width: 100%;
+	border-radius: 1rem;
+	padding: 1.5%;
+	border: none;
+	cursor: pointer;
+}
+
+.login-form-1 .btnSubmit {
+	font-weight: 600;
+	color: #fff;
+	background-color: #0062cc;
+}
+
+#submitBtn {
+	margin-top: 50px;
+	padding: 10px;
+	font-size: 1.5em;
+}
