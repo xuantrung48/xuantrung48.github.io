@@ -1,4 +1,3 @@
-var lang = 0;
 $(document).ready(function() {
   AOS.init( {
     // uncomment below for on-scroll animations to played only once
@@ -42,49 +41,45 @@ $('a.smooth-scroll')
   }
 });
 
-changeLang = function() {
-	if (lang == 0) {
-		$('#Lang').text('EN');
-		$('#title').text('Hồ Sơ Nguyễn Xuân Trung');
-		$('.name').text('Nguyễn Xuân Trung');
-		$('.about').text('Giới thiệu');
-		$('.skills').text('Kỹ năng');
-		$('.portfolio').text('Danh mục dự án');
-		$('.education').text('Học vấn');
-		$('.contact').text('Liên hệ');
-		$('#introduce').html('<p>Xin chào! Tôi là Nguyễn Xuân Trung. Tôi là một nhà phát triển Web.</p><p>Tôi là một người lập trình Full-Stack, và tôi chuyên về ASP.NET Core hoạt động hiệu quả trên tất cả các nền tảng. Tôi đặc biệt quan tâm đến việc xây dựng các mã code hiệu quả có thể sử dụng được và tối ưu hóa hiệu suất hệ thống.</p>');
-		$('.information').text('Thông tin');
-		$('.age').text('Tuổi');
-		$('.gender').text('Giới tính');
-		$('.male').text('Nam');
-		$('.phone').text('Điện thoại');
-		$('.address').text('Địa chỉ');
-		$('.language').text('Ngôn ngữ');
-		$('.envi').text('Tiếng Anh, Tiếng Việt');
-		$('#position').text('Vị trí');
-		$('.address-detail').text('33/39 Đào Duy Anh, Huế, Việt Nam');
-		$('.full-stack-dev').text('Lập trình Web ASP.NET Core Full-Stack');
-		$('#full-stack-dev-time').text('01/2020 - 09/2020');
-		$('.tourism-name').text('Quản trị kinh doanh du lịch');
-		$('#tourism-time').text('07/2007 - 07/2011');
-		$('#codegym-hue').text('CodeGym Huế');
-		$('#college').text('Trường Đại Học Kinh Tế Huế');
-		$('#learn-codegym').text('Chương trình học bao gồm HTML/CSS/JS, Ajax Jquery, C#, SQL, SQL Server, Spring MVC, ASP.NET Core RESTful API, Angula và Git.');
-		$('#learn-college').text('Có kiến ​​thức chuyên môn về du lịch, nhà hàng và khách sạn trong nền kinh tế thị trường.');
-		$('.send-message').text('Gửi tin nhắn cho tôi');
-		$('.send').text('Gửi');
-		$('.thank-you').text('Xin cám ơn!');
-		$('.name').attr('placeholder', 'Tên');
-		$('.subject').attr('placeholder', 'Tiêu đề');
-		$('.message').attr('placeholder', 'Tin nhắn');
-		lang = 1;
-	} else {
-		displayEn();
-	}
+displayVi = function() {
+	$('#Lang').text('English');
+	$('#title').text('Hồ Sơ Nguyễn Xuân Trung');
+	$('.name').text('Nguyễn Xuân Trung');
+	$('.about').text('Giới thiệu');
+	$('.skills').text('Kỹ năng');
+	$('.portfolio').text('Danh mục dự án');
+	$('.education').text('Học vấn');
+	$('.contact').text('Liên hệ');
+	$('#introduce').html('<p>Xin chào! Tên của tôi là Nguyễn Xuân Trung. Tôi là một nhà phát triển Web.</p><p>Tôi là một người lập trình Full-Stack, và tôi chuyên về ASP.NET Core hoạt động hiệu quả trên tất cả các nền tảng. Tôi đặc biệt quan tâm đến việc xây dựng các mã code hiệu quả có thể sử dụng được và tối ưu hóa hiệu suất hệ thống.</p>');
+	$('.information').text('Thông tin');
+	$('.age').text('Tuổi');
+	$('.gender').text('Giới tính');
+	$('.male').text('Nam');
+	$('.phone').text('Điện thoại');
+	$('.address').text('Địa chỉ');
+	$('.language').text('Ngôn ngữ');
+	$('.envi').text('Tiếng Anh, Tiếng Việt');
+	$('#position').text('Vị trí');
+	$('.address-detail').text('33/39 Đào Duy Anh, Huế, Việt Nam');
+	$('.full-stack-dev').text('Lập trình Web ASP.NET Core Full-Stack');
+	$('#full-stack-dev-time').text('01/2020 - 09/2020');
+	$('.tourism-name').text('Quản trị kinh doanh du lịch');
+	$('#tourism-time').text('07/2007 - 07/2011');
+	$('#codegym-hue').text('CodeGym Huế');
+	$('#college').text('Trường Đại Học Kinh Tế Huế');
+	$('#learn-codegym').text('Chương trình học bao gồm HTML/CSS/JS, Ajax Jquery, C#, SQL, SQL Server, Spring MVC, ASP.NET Core RESTful API, Angula và Git.');
+	$('#learn-college').text('Có kiến ​​thức chuyên môn về du lịch, nhà hàng và khách sạn trong nền kinh tế thị trường.');
+	$('.send-message').text('Gửi tin nhắn cho tôi');
+	$('.send').text('Gửi');
+	$('.thank-you').text('Xin cám ơn!');
+	$('.name').attr('placeholder', 'Tên');
+	$('.subject').attr('placeholder', 'Tiêu đề');
+	$('.message').attr('placeholder', 'Tin nhắn');
+	$('.change-lang').attr('onclick', 'displayEn()');
 }
 
 displayEn = function(){
-	$('#Lang').text('VI');
+	$('#Lang').text('Tiếng Việt');
 	$('#title').text("Nguyen Xuan Trung's profile");
 	$('.name').text('Nguyen Xuan Trung');
 	$('.about').text('About');
@@ -117,5 +112,5 @@ displayEn = function(){
 	$('.name').attr('placeholder', 'Name');
 	$('.subject').attr('placeholder', 'Subject');
 	$('.message').attr('placeholder', 'Your message');
-	lang = 0;
+	$('.change-lang').attr('onclick', 'displayVi()');
 }
