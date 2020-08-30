@@ -31,11 +31,14 @@
 
 		<canvas id="myCanvas" width="700" height="500"></canvas>
 		<script>
+			var coinAudio = new Audio('audios/coin.wav');
+			var crashAudio = new Audio('audios/crash.wav');
+			var startAudio = new Audio('audios/start.wav');
 			function docReady() {
 				drawCanvas("up", x, y);
+				startAudio.play();
 				window.addEventListener('keydown', move);
 			}
-			
 			var x = 325;
 			var y = 225;
 			var xc;
@@ -99,12 +102,14 @@
 				this.coin = coin;
 				this.died = function() {
 					if ((x > (x1 - 50) && x < (x1 + 50)) && (y > (y1 - 50) && y < (y1 + 50)) || (x > (x2 - 50) && x < (x2 + 50)) && (y > (y2 - 50) && y < (y2 + 50)) || (x > (x3 - 50) && x < (x3 + 50)) && (y > (y3 - 50) && y < (y3 + 50)) || (x > (x4 - 50) && x < (x4 + 50)) && (y > (y4 - 50) && y < (y4 + 50)) || (x > (x5 - 50) && x < (x5 + 50)) && (y > (y5 - 50) && y < (y5 + 50)) || (x > (x6 - 50) && x < (x6 + 50)) && (y > (y6 - 50) && y < (y6 + 50)) || (x > (x7 - 50) && x < (x7 + 50)) && (y > (y7 - 50) && y < (y7 + 50)) || (x > (x8 - 50) && x < (x8 + 50)) && (y > (y8 - 50) && y < (y8 + 50))) {
+						crashAudio.play();
 						return true;
 					}
 					return false;
 				}
 				this.earnCoin = function() {
 					if ((x > (xc - 50) && x < (xc + 50)) && (y > (yc - 50) && y < (yc + 50))) {
+						coinAudio.play();
 						this.coin++;
 						xc = randomX();
 						yc = randomY();

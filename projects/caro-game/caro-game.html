@@ -29,11 +29,20 @@
 			}
 		</style>
 	</head>
-	<body onload="createBoard()">
+	<body onload="docReady()">
 		<h1>CARO GAME</h1>
 		<p id="board"></p>
 		<p style="text-align: center;">Copyright © by <a href="https://www.facebook.com/XuanTrung">Trung Nguyen</a></p>
 		<script>
+			var startAudio = new Audio('audios/start.wav');
+			var winAudio = new Audio('audios/win.wav');
+			var playXAudio = new Audio('audios/x.wav');
+			var playOAudio = new Audio('audios/o.wav');
+			
+			docReady = function(){
+				startAudio.play();
+				createBoard();
+			}
 			//Tạo mảng 2 chiều
 			var cells = [];
 			for (let i = 0; i < 20; i++) {
@@ -65,6 +74,7 @@
 				if (checkWin() != true) {
 					if (counter % 2 != 0) {
 						if (cells[i][j] != "X" && cells[i][j] != "O") {
+							playXAudio.play();
 							cells[i][j] = "X";
 							counter++;
 							createBoard();
@@ -72,6 +82,7 @@
 						}
 					} else {
 						if (cells[i][j] != "X" && cells[i][j] != "O") {
+							playOAudio.play();
 							cells[i][j] = "O";
 							counter++;
 							createBoard();
@@ -86,10 +97,12 @@
 				for (let i = 0; i <= 19; i++) {
 					for (let j = 0; j <= 15; j++) {
 						if (cells[i][j] == "O" && cells[i][j + 1] == "O" && cells[i][j + 2] == "O" && cells[i][j + 3] == "O" && cells[i][j + 4] == "O") {
+							winAudio.play();
 							changeColorRow(i, j);
 							alert('Player "O" won!');
 							return true;
 						} else if (cells[i][j] == "X" && cells[i][j + 1] == "X" && cells[i][j + 2] == "X" && cells[i][j + 3] == "X" && cells[i][j + 4] == "X") {
+							winAudio.play();
 							changeColorRow(i, j);
 							alert('Player "X" won!');
 							return true;
@@ -100,10 +113,12 @@
 				for (let i = 0; i <= 15; i++) {
 					for (let j = 0; j <= 19; j++) {
 						if (cells[i][j] == "O" && cells[i + 1][j] == "O" && cells[i + 2][j] == "O" && cells[i + 3][j] == "O" && cells[i + 4][j] == "O") {
+							winAudio.play();
 							changeColorCol(i, j);
 							alert('Player "O" won!');
 							return true;
 						} else if (cells[i][j] == "X" && cells[i + 1][j] == "X" && cells[i + 2][j] == "X" && cells[i + 3][j] == "X" && cells[i + 4][j] == "X") {
+							winAudio.play();
 							changeColorCol(i, j);
 							alert('Player "X" won!');
 							return true;
@@ -114,10 +129,12 @@
 				for (i = 0; i <= 15; i++) {
 					for (j = 0; j <= 15; j++) {
 						if (cells[i][j] == "O" && cells[i + 1][j + 1] == "O" && cells[i + 2][j + 2] == "O" && cells[i + 3][j + 3] == "O" && cells[i + 4][j + 4] == "O") {
+							winAudio.play();
 							changeColorDia1(i, j);
 							alert('Player "O" won!');
 							return true;
 						} else if (cells[i][j] == "X" && cells[i + 1][j + 1] == "X" && cells[i + 2][j + 2] == "X" && cells[i + 3][j + 3] == "X" && cells[i + 4][j + 4] == "X") {
+							winAudio.play();
 							changeColorDia1(i, j);
 							alert('Player "X" won!');
 							return true;
@@ -128,10 +145,12 @@
 				for (i = 0; i <= 15; i++) {
 					for (j = 4; j <= 19; j++) {
 						if (cells[i][j] == "O" && cells[i + 1][j - 1] == "O" && cells[i + 2][j - 2] == "O" && cells[i + 3][j - 3] == "O" && cells[i + 4][j - 4] == "O") {
+							winAudio.play();
 							changeColorDia2(i, j);
 							alert('Player "O" won!');
 							return true;
 						} else if (cells[i][j] == "X" && cells[i + 1][j - 1] == "X" && cells[i + 2][j - 2] == "X" && cells[i + 3][j - 3] == "X" && cells[i + 4][j - 4] == "X") {
+							winAudio.play();
 							changeColorDia2(i, j);
 							alert('Player "X" won!');
 							return true;
